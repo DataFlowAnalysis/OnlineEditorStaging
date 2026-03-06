@@ -1,7 +1,7 @@
 import { readdir, writeFile, readFile } from "fs/promises";
 
-const owner = "Kr0nox";
-const repo = "WorkflowTest";
+const owner = "DataFlowAnalysis";
+const repo = "OnlineEditor";
 
 // p.length > 0 filters out the root index.html file
 const files = (await getFiles(".")).filter((p) => p.length > 0).sort();

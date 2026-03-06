@@ -1,7 +1,7 @@
 import { readdir, rm } from "fs/promises";
 
-const owner = "Kr0nox";
-const repo = "WorkflowTest";
+const owner = "DataFlowAnalysis";
+const repo = "OnlineEditor";
 
 const branches = await fetch(
   `https://api.github.com/repos/${owner}/${repo}/branches`,
