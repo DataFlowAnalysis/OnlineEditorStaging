@@ -1,0 +1,29 @@
+name: Build index.js
+
+on:
+  workflow_dispatch:
+  push:
+
+permissions:
+  contents: write
+
+jobs:
+  comment-on-update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+    
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "lts/*"          
+
+      - name: Build and Commit
+        env:
+          TOKEN: ${{ secrets.MY_TOKEN }}
+        run: |
+          node buildIndex.js
+          git config --global user.name 'DataFlowAnalysis'
+          git config --global user.email 'DataFlowAnalysis@users.noreply.github.com'
+          git commit -am "Update index.js [skip ci]" || echo "No changes to commit"
+          git push
