@@ -21,7 +21,7 @@ jobs:
 
       - name: Build and Commit
         env:
-          TOKEN: ${{ secrets.MY_TOKEN }}
+          TOKEN: ${{ secrets.XDECAF_EDITOR_STAGING }}
         run: |
           node clean.js
           node buildIndex.js
